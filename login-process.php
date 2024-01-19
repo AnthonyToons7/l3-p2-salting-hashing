@@ -17,11 +17,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 
-$checkPass = password_verify($pass, $row["Hash_wachtwoord"]);
-echo '<pre>';
-var_dump($pass);
-var_dump($row["Hash_wachtwoord"]);
-if($checkPass){
+if(password_verify($pass, $row["Hash_wachtwoord"])){
     $_SESSION["loggedIn"] = $row["Gebruikersnaam"];
     header("location: page.php");
 }

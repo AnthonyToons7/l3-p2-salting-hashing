@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+    if(!$_SESSION["loggedIn"]){
+        header("location: login.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +13,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>You're logged in</h1>
+    <h1>You're logged in, <?= $_SESSION["loggedIn"] ?></h1>
     <a href="./logout.php">Logout</a>
 </body>
 </html>
